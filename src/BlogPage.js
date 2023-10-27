@@ -1,22 +1,23 @@
 // BlogPage.js
 import React from "react";
+import { posts } from "./blog_posts";
 
 const BlogPage = () => {
   return (
     <div>
-      <h1>Welcome to Nick's Blog</h1>
-      <p>
-        Here's where I share my thoughts on software development, hiking, and my
-        adventures with my dog.
-      </p>
-      {/* Sample blog post */}
-      <article>
-        <h2>My Journey from Food Scientist to Software Engineer</h2>
-        <p>
-          Transitioning from a food scientist to a software engineer was both
-          challenging and rewarding. Let me share my story...
-        </p>
-      </article>
+      <h1>Weather Blog</h1>
+      <p>This is a collection of posts that about the local weather.</p>
+      {/* Blog posts */}
+      {posts.map((post, index) => (
+        <div className="blog-post">
+          <article key={index}>
+            <h2>{post.title}</h2>
+            <h3>{post.date}</h3>
+            <h4>Written By: {post.author}</h4>
+            <p>{post.content}</p>
+          </article>
+        </div>
+      ))}
     </div>
   );
 };
