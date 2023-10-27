@@ -23,8 +23,7 @@ const WeatherPage = () => {
           );
         }
         const data = await response.json();
-        console.log("Data fetched:", data);
-        console.log("Data first datapoint:", data[0]);
+        // get the first element of the response array - this is the most recent data
         const datapoint = data[0];
         setWeatherData(datapoint);
         getSunData();
@@ -36,7 +35,9 @@ const WeatherPage = () => {
     // Fetches the sun data
     const getSunData = async () => {
       try {
-        const response = await fetch("/sun-data");
+        const response = await fetch(
+          `https://api.sunrise-sunset.org/json?lat=37.3856&lng=-77.6971&date=today`
+        );
         const data = await response.json();
         setSunData(data);
       } catch (error) {
@@ -47,10 +48,10 @@ const WeatherPage = () => {
     // Load the data initially
     getWeatherStationData();
 
-    // Set interval to fetch data every minute
+    // Set interval to fetch data every 5 minutes
     const intervalId = setInterval(() => {
       getWeatherStationData();
-    }, 60000);
+    }, 300000);
 
     // Cleanup the interval on component unmount
     return () => {
@@ -226,7 +227,7 @@ const WeatherPage = () => {
       )}
       {sunData && (
         <div>
-          <h2 className="section-heading">Sun Data</h2>
+          
           <p>
             <strong>Sunrise:</strong>{" "}
             <span className="data-value">{sunriseLocal} am</span>
