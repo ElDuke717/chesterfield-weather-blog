@@ -1,11 +1,9 @@
 import "./App.css";
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import WeatherPage from './WeatherPage';
-import BlogPage from './BlogPage'; 
-
-
+import WeatherPage from "./WeatherPage";
+import BlogPage from "./BlogPage";
 
 function App() {
   return (
@@ -18,8 +16,12 @@ function App() {
           {/* Your navigation links here */}
           <nav>
             <ul>
-              <li><Link to="/weather">Weather</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
+              <li>
+                <Link to="/weather">Weather</Link>
+              </li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
             </ul>
           </nav>
 
@@ -31,9 +33,11 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <footer>
+        <p>© 2023 Chesterfield Weather Blog. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
-
 
 export default App;

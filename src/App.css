@@ -1,38 +1,166 @@
-.App {
+/* Reset some default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 18px; /* Set a default font-size */
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header,
+nav,
+main,
+footer {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+header h1 {
+  text-align: center;
+  color: #4caf50;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+main section {
+  margin-bottom: 20px;
+}
+
+footer {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.raspberry {
+  height: 50px;
+  width: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.temp-heading {
+  margin: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 10vh;
+/* Updated list styles */
+ul {
+  list-style-type: disc; /* Add bullets to the list */
+}
+
+li {
+  margin: 10px 0; /* Add some vertical margin for readability */
+}
+
+/* For nested lists */
+li ul {
+  margin-left: 20px; /* Indentation for nested lists */
+}
+
+#metrics div {
+  margin: 10px 0;
+  font-size: 1.1em; /* Slightly larger font for metrics */
+}
+
+.metrics-explanation {
+  margin-top: 20px;
+}
+
+.refresh {
+  font-size: 10px;
+}
+
+.explanation,
+.specs {
+  margin-left: 20px;
+}
+
+.forecast-day {
+  border: 1px solid grey;
+  margin: 20px;
+  padding: 5px;
+  width: 75%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-evenly;
 }
 
-.App-link {
-  color: #61dafb;
+#water-message {
+  border: 2px solid rgb(56, 41, 41);
+  background-color: rgb(253, 84, 84);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section-heading {
+  color: #005577;
+}
+
+.data-value {
+  color: #ff9500;
+  font-weight: bold;
+}
+
+#water-message {
+  background-color: #f2dede;
+  color: #a94442;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+}
+
+.weather-img {
+  border-radius: 5px;
+}
+
+.blog-post {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 75%;
+}
+
+.main-info {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }

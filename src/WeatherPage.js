@@ -120,7 +120,7 @@ const WeatherPage = () => {
     : "";
 
   return (
-    <div>
+    <div className="main-info">
       {weatherData && (
         <div className="weather-data">
           <h1 className="section-heading">Station Weather Data</h1>
@@ -227,7 +227,6 @@ const WeatherPage = () => {
       )}
       {sunData && (
         <div>
-          
           <p>
             <strong>Sunrise:</strong>{" "}
             <span className="data-value">{sunriseLocal} am</span>
