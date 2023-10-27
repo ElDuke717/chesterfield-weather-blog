@@ -71,6 +71,13 @@ let posts = [
     content:
       "After a hiccup this week with our ISP, and some other funny business, we now have our own domain and can be accessed through http://chesterfieldweatherblog.link.  We don't yet have HTTPS yet as that has to be configured.",
   },
+  {
+    title: "Moving over to hosting on AWS",
+    date: "October 27, 2023",
+    author: "Nick",
+    content:
+      "Due to some limitations of hosting the site on a Raspberry Pi, we are moving over to hosting on AWS.  This will allow us to have HTTPS and a more reliable connection.  The site layout has changed a bit since it has been rebuilt using React.  The NOAA weather forcast will be moved to a separate page to make the main page less cluttered and easier to read.",
+  },
   // ... add more posts as objects
 ];
 
