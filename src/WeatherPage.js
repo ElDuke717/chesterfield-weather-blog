@@ -9,7 +9,6 @@ const WeatherPage = () => {
   // State for weather and sun data
   const [weatherData, setWeatherData] = useState(null);
   const [sunData, setSunData] = useState(null);
-  const [forecastData, setForecastData] = useState(null);
 
   useEffect(() => {
     // Fetches the weather data
@@ -28,14 +27,10 @@ const WeatherPage = () => {
         const datapoint = data[0];
         setWeatherData(datapoint);
         getSunData();
-        
-        
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
-    
 
     // Fetches the sun data
     const getSunData = async () => {
