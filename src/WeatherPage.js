@@ -1,9 +1,41 @@
 // WeatherPage.js
 import React, { useState, useEffect } from "react";
-
+import {
+  SecretsManagerClient,
+  GetSecretValueCommand,
+} from "@aws-sdk/client-secrets-manager";
 const MAC_ADDRESS = process.env.REACT_APP_MAC_ADDRESS;
 const AW_API_KEY = process.env.REACT_APP_AW_API_KEY;
 const APP_KEY = process.env.REACT_APP_APP_KEY;
+
+// Use this code snippet in your app.
+// If you need more information about configurations or implementing the sample code, visit the AWS docs:
+// https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started.html
+
+const secret_name = "weather_app_keys";
+
+const client = new SecretsManagerClient({
+  region: "us-east-1",
+});
+
+let response;
+
+try {
+  response = await client.send(
+    new GetSecretValueCommand({
+      SecretId: secret_name,
+      VersionStage: "AWSCURRENT", // VersionStage defaults to AWSCURRENT if unspecified
+    })
+  );
+} catch (error) {
+  // For a list of exceptions thrown, see
+  // https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+  throw error;
+}
+
+const secret = response.SecretString;
+
+// Your code goes here
 
 const WeatherPage = () => {
   // State for weather and sun data
@@ -11,8 +43,11 @@ const WeatherPage = () => {
   const [sunData, setSunData] = useState(null);
 
   useEffect(() => {
+    let counter = 0;
     // Fetches the weather data
     const getWeatherStationData = async () => {
+      counter += 1;
+      console.log("Fetching weather data...", new Date(), counter);
       try {
         const response = await fetch(
           `https://api.ambientweather.net/v1/devices/${MAC_ADDRESS}?apiKey=${AW_API_KEY}&applicationKey=${APP_KEY}`
@@ -51,7 +86,7 @@ const WeatherPage = () => {
     // Set interval to fetch data every 5 minutes
     const intervalId = setInterval(() => {
       getWeatherStationData();
-    }, 300000);
+    }, 600000);
 
     // Cleanup the interval on component unmount
     return () => {
